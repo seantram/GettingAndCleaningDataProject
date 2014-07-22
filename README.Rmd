@@ -36,7 +36,7 @@
         I prefered the join() fonction in the "plyr" library because it keeps the original sorting.
 - Part 4: Keeping only the Mean and Std for each measurement : I put in a vector columns names that contain the words "mean" & "std", I subset the data with this vector, then I remove columns names that contain "meanFreq"  which I think does not relate to this assignment.
 - Part 5: Renaming variables : I use the gsub() fonction to make variables names more descriptive.
-_ Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file "tidy_data.txt".
+- Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file "tidy_data.txt".
 
 
 ##### For the code book see the file CodeBook.md

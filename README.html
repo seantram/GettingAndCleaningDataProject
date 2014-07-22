@@ -187,8 +187,8 @@ hr {
 <li>Part 3 : Adding activity names: To add a descriptive activity names to the data set, I start by renaming                         variables in &ldquo;activity_labels&rdquo; set and then use the &ldquo;plyr&rdquo; library to do a left join with the full dada set and the activity labels set.<br/>
     I prefered the join() fonction in the &ldquo;plyr&rdquo; library because it keeps the original sorting.</li>
 <li>Part 4: Keeping only the Mean and Std for each measurement : I put in a vector columns names that contain the words &ldquo;mean&rdquo; &amp; &ldquo;std&rdquo;, I subset the data with this vector, then I remove columns names that contain &ldquo;meanFreq&rdquo;  which I think does not relate to this assignment.</li>
-<li>Part 5: Renaming variables : I use the gsub() fonction to make variables names more descriptive.
-_ Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file &ldquo;tidy_data.txt&rdquo;.</li>
+<li>Part 5: Renaming variables : I use the gsub() fonction to make variables names more descriptive.</li>
+<li>Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file &ldquo;tidy_data.txt&rdquo;.</li>
 </ul>
 
 <h5>For the code book see the file CodeBook.md</h5>
