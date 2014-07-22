@@ -88,6 +88,7 @@ data3 <- data3[,-meanFreq] # removing meanFreq measurement
 
 names(data3) <- sub("Acc", "Accelerometer", names(data3))
 names(data3) <- sub("Gyro", "Gyroscope", names(data3))
+names(data3) <- sub("BodyBody", "Body", names(data3))
 names(data3) <- gsub("-", "", names(data3))
 names(data3) <- gsub("Mag", "Magnitude", names(data3))
 names(data3) <- gsub("std", "Std", names(data3))
