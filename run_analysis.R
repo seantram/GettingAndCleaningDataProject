@@ -59,7 +59,7 @@ data <- rbind(train, test)
 colnames(activity_labels)[1] <- "labels_id"
 colnames(activity_labels)[2] <- "activity"
 
-# I'll use the "plyr" library to to a left join with the full dada set and the activity_labels set
+# I'll use the "plyr" library to do a left join with the full dada set and the activity_labels set
 
 library(plyr)
 data2 <-  join(data, activity_labels, by = "labels_id",  type = "left")
@@ -86,9 +86,9 @@ data3 <- data3[,-meanFreq] # removing meanFreq measurement
 # ==================== Part 5:  Renaming variables ==========================
 #============================================================================
 
-names(data3) <- sub("Acc", "Accelerometer", names(data3))
-names(data3) <- sub("Gyro", "Gyroscope", names(data3))
-names(data3) <- sub("BodyBody", "Body", names(data3))
+names(data3) <- gsub("Acc", "Accelerometer", names(data3))
+names(data3) <- gsub("Gyro", "Gyroscope", names(data3))
+names(data3) <- gsub("BodyBody", "Body", names(data3))
 names(data3) <- gsub("-", "", names(data3))
 names(data3) <- gsub("Mag", "Magnitude", names(data3))
 names(data3) <- gsub("std", "Std", names(data3))

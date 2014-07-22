@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>This file explains how the script &ldquo;run_analysis.R&rdquo; works</title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h3>This file explains how the script &ldquo;run_analysis.R&rdquo; works</h3>
+
+<h4>The inputs of the script</h4>
+
+<ul>
+<li>The data folder must be unzipped in the work directory</li>
+<li>The name of the data folder &ldquo;UCI HAR Dataset&rdquo; and subfolders are expected to stay unchanged</li>
+</ul>
+
+<h4>The ouput of the script</h4>
+
+<ul>
+<li>The script produces a tidy data set with the file name : &ldquo;tidy_data.txt&rdquo; </li>
+<li>The script saves the ouput file in the work directory.</li>
+</ul>
+
+<h4>how to execute the script in R?</h4>
+
+<ol>
+<li>Copy the the file  &ldquo;run_analysis.R&rdquo; in your work directory</li>
+<li>in R console type : source(&ldquo;run_analysis.R&rdquo;)</li>
+</ol>
+
+<h4>The script sections</h4>
+
+<p><strong>&ldquo;run_analysis.R&rdquo;  is divided into 6 parts as follows :</strong></p>
+
+<ul>
+<li>Part 1 : Reading Data sets : in this section the script reads all data sets from main data folder un subfolders.</li>
+<li>Part 2 : Merging the training and the test sets : in this section I prepare training and test data sets for merging by : 
+            * Replacing columns names with the features vector
+            * Adding and renaming subjects and activities columns
+            then I merge training and test data sets using <strong>rbind()</strong> fonction.</li>
+<li>Part 3 : Adding activity names: To add a descriptive activity names to the data set, I start by renaming                         variables in &ldquo;activity_labels&rdquo; set and then use the &ldquo;plyr&rdquo; library to do a left join with the full dada set and the activity labels set.<br/>
+    I prefered the join() fonction in the &ldquo;plyr&rdquo; library because it keeps the original sorting.</li>
+<li>Part 4: Keeping only the Mean and Std for each measurement : I put in a vector columns names that contain the words &ldquo;mean&rdquo; &amp; &ldquo;std&rdquo;, I subset the data with this vector, then I remove columns names that contain &ldquo;meanFreq&rdquo;  which I think does not relate to this assignment.</li>
+<li>Part 5: Renaming variables : I use the gsub() fonction to make variables names more descriptive.
+_ Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file &ldquo;tidy_data.txt&rdquo;.</li>
+</ul>
+
+<h5>For the code book see the file CodeBook.md</h5>
+
+</body>
+
+</html>
