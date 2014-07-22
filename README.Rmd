@@ -1,7 +1,7 @@
----
-title: "Getting and Cleaning Data Project"
 
----
+## Getting and Cleaning Data Project
+
+
 
 
 ### This file explains how the script "run_analysis.R" works
