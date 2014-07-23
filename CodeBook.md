@@ -18,7 +18,7 @@
 
         - There are six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
 
-###### Measurement variables : This relates to all variables below:
+###### Measurement variables : This section relates to all variables below:
 
         - There are 66 variables
         - All variables are numeric 
