@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>This file explains how the script &ldquo;run_analysis.R&rdquo; works</title>
+<title>Codebook (DATA DICTIONARY)</title>
 
 
 
@@ -149,47 +149,124 @@ hr {
 </head>
 
 <body>
-<h3>This file explains how the script &ldquo;run_analysis.R&rdquo; works</h3>
+<h4>Codebook (DATA DICTIONARY)</h4>
 
-<h4>The inputs of the script</h4>
+<h5>Human Activity Recognition Using Smartphones Dataset</h5>
 
-<ul>
-<li>The data folder must be unzipped in the work directory</li>
-<li>The name of the data folder &ldquo;UCI HAR Dataset&rdquo; and subfolders are expected to stay unchanged</li>
-</ul>
+<h5>Dataset name : tidy_data.txt</h5>
 
-<h4>The ouput of the script</h4>
+<hr/>
 
 <ul>
-<li>The script produces a tidy data set with the file name : &ldquo;tidy_data.txt&rdquo; </li>
-<li>The script saves the ouput file in the work directory.</li>
+<li><p>subject</p>
+
+<pre><code>- 1:30
+- Each row identifies the subject who performed the activity
+</code></pre></li>
+<li><p>activity</p>
+
+<pre><code>- There are six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+</code></pre></li>
 </ul>
 
-<h4>how to execute the script in R?</h4>
+<h6>Measurement variables : This relates to all variables below:</h6>
 
-<ol>
-<li>Copy the the file  &ldquo;run_analysis.R&rdquo; in your work directory</li>
-<li>in R console type : source(&ldquo;run_analysis.R&rdquo;)</li>
-</ol>
+<pre><code>    - There are 66 variables
+    - All variables are numeric 
+    - All measurements are averaged by subject and activity
 
-<h4>The script sections</h4>
+     Description of the variables names :
+     - Time          : Time domain signals
+     - Body          : Body acceleration signals
+     - Accelerometer : Signal from the Accelerometer of the phone 
+     - Jerk          : The body linear acceleration and angular velocity were derived in time to obtain Jerk signals
+     - Magnitude     : Magnitude of three-dimensional signals
+     - Gyroscope     : Signal from the Gyroscope of the phone 
+     - Gravity       : Gravity acceleration signals
+     - Frequency     : Frequency domain signals
+     - XYZ           : Axis of the signal
 
-<p><strong>&ldquo;run_analysis.R&rdquo;  is divided into 6 parts as follows :</strong></p>
+     The set of variables that were estimated from these signals are: 
+    - Mean: Mean value
+    - Std : Standard deviation
 
-<ul>
-<li>Part 1 : Reading Data sets : in this section the script reads all data sets from main data folder un subfolders.</li>
-<li>Part 2 : Merging the training and the test sets : in this section I prepare training and test data sets for merging by : 
-            * Replacing columns names with the features vector
-            * Adding and renaming subjects and activities columns
-            then I merge training and test data sets using <strong>rbind()</strong> fonction.</li>
-<li>Part 3 : Adding activity names: To add a descriptive activity names to the data set, I start by renaming                         variables in &ldquo;activity_labels&rdquo; set and then use the &ldquo;plyr&rdquo; library to do a left join with the full dada set and the activity labels set.<br/>
-    I prefered the join() fonction in the &ldquo;plyr&rdquo; library because it keeps the original sorting.</li>
-<li>Part 4: Keeping only the Mean and Std for each measurement : I put in a vector columns names that contain the words &ldquo;mean&rdquo; &amp; &ldquo;std&rdquo;, I subset the data with this vector, then I remove columns names that contain &ldquo;meanFreq&rdquo;  which I think does not relate to this assignment.</li>
-<li>Part 5: Renaming variables : I use the gsub() fonction to make variables names more descriptive.
-_ Part 6: Creates a second, independent tidy data set : I use aggregate() fonction to calculate the average of each variable for each activity and each subject, then I save the data to the file &ldquo;tidy_data.txt&rdquo;.</li>
-</ul>
+     ** Fore more details about original dataset see features_info.txt
+</code></pre>
 
-<h5>For the code book see the file CodeBook.md</h5>
+<h6>Note:</h6>
+
+<pre><code>    - Features are normalized and bounded within [-1,1].
+</code></pre>
+
+<h6>List of variables:</h6>
+
+<pre><code>    - TimeBodyAccelerometerJerkMagnitudeMean
+    - TimeBodyAccelerometerJerkMagnitudeStd
+    - TimeBodyAccelerometerJerkMeanX
+    - TimeBodyAccelerometerJerkMeanY
+    - TimeBodyAccelerometerJerkMeanZ
+    - TimeBodyAccelerometerJerkStdX
+    - TimeBodyAccelerometerJerkStdY
+    - TimeBodyAccelerometerJerkStdZ
+    - TimeBodyAccelerometerMagnitudeMean
+    - TimeBodyAccelerometerMagnitudeStd
+    - TimeBodyAccelerometerMeanX
+    - TimeBodyAccelerometerMeanY
+    - TimeBodyAccelerometerMeanZ
+    - TimeBodyAccelerometerStdX
+    - TimeBodyAccelerometerStdY
+    - TimeBodyAccelerometerStdZ
+    - TimeBodyGyroscopeJerkMagnitudeMean
+    - TimeBodyGyroscopeJerkMagnitudeStd
+    - TimeBodyGyroscopeJerkMeanX
+    - TimeBodyGyroscopeJerkMeanY
+    - TimeBodyGyroscopeJerkMeanZ
+    - TimeBodyGyroscopeJerkStdX
+    - TimeBodyGyroscopeJerkStdY
+    - TimeBodyGyroscopeJerkStdZ
+    - TimeBodyGyroscopeMagnitudeMean
+    - TimeBodyGyroscopeMagnitudeStd
+    - TimeBodyGyroscopeMeanX
+    - TimeBodyGyroscopeMeanY
+    - TimeBodyGyroscopeMeanZ
+    - TimeBodyGyroscopeStdX
+    - TimeBodyGyroscopeStdY
+    - TimeBodyGyroscopeStdZ
+    - TimeGravityAccelerometerMagnitudeMean
+    - TimeGravityAccelerometerMagnitudeStd
+    - TimeGravityAccelerometerMeanX
+    - TimeGravityAccelerometerMeanY
+    - TimeGravityAccelerometerMeanZ
+    - TimeGravityAccelerometerStdX
+    - TimeGravityAccelerometerStdY
+    - TimeGravityAccelerometerStdZ
+    - FrequencyBodyAccelerometerJerkMagnitudeMean
+    - FrequencyBodyAccelerometerJerkMagnitudeStd
+    - FrequencyBodyAccelerometerJerkMeanX
+    - FrequencyBodyAccelerometerJerkMeanY
+    - FrequencyBodyAccelerometerJerkMeanZ
+    - FrequencyBodyAccelerometerJerkStdX
+    - FrequencyBodyAccelerometerJerkStdY
+    - FrequencyBodyAccelerometerJerkStdZ
+    - FrequencyBodyAccelerometerMagnitudeMean
+    - FrequencyBodyAccelerometerMagnitudeStd
+    - FrequencyBodyAccelerometerMeanX
+    - FrequencyBodyAccelerometerMeanY
+    - FrequencyBodyAccelerometerMeanZ
+    - FrequencyBodyAccelerometerStdX
+    - FrequencyBodyAccelerometerStdY
+    - FrequencyBodyAccelerometerStdZ
+    - FrequencyBodyGyroscopeJerkMagnitudeMean
+    - FrequencyBodyGyroscopeJerkMagnitudeStd
+    - FrequencyBodyGyroscopeMagnitudeMean
+    - FrequencyBodyGyroscopeMagnitudeStd
+    - FrequencyBodyGyroscopeMeanX
+    - FrequencyBodyGyroscopeMeanY
+    - FrequencyBodyGyroscopeMeanZ
+    - FrequencyBodyGyroscopeStdX
+    - FrequencyBodyGyroscopeStdY
+    - FrequencyBodyGyroscopeStdZ
+</code></pre>
 
 </body>
 
